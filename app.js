@@ -3,34 +3,82 @@ addEventListener('DOMContentLoaded', () => {
     console.log('hello from content loaded');
 })
 
-addEventListener('click', (event) => {
-    console.log('Hello from the click event');
-    console.log('event was ', event);
-});
+// addEventListener('click', (event) => {
+//     console.log('Hello from the click event');
+//     console.log('event was ', event);
+// });
 
 //////////////////////////////////
 //  examples and stuff
 //////////////////////////////////
 
-// Function
-function deansSuperAwesomeFunction() {
-    console.log('hi my name is Dean')
-}
-
-deansSuperAwesomeFunction()
-
 
 const images = document.querySelectorAll('img');
-console.log(images);
+
+const cards = [
+    {
+        flipped: false,
+        matched: false,
+        name: "coffee",
+    },
+    {
+        flipped: false,
+        matched: false,
+        name: "coffee",
+    },
+]
+    
 
 // middle - loop condition
 
 for (let i = 0; i < images.length; i++) {
-    console.log(i);
     const image = images.item(i)
-    console.log(image);
     image.addEventListener('click', (event) => {
-        console.log(`Hello from element ${i}`);
-        console.log('event was ', event);
+        
+        if (cards[0].flipped === false) {
+            console.log(`flipped is now ${cards[0].flipped}`)
+            cards[0].flipped = true
+            console.log(`flipped is now ${cards[0].flipped}`)
+        }
     });
 }
+
+
+/**
+ * Dean's = vs == vs === sidebar
+ * 
+ *  = (single) is the assignment operator
+ *          this is an action
+ * 
+ *  == (double) is the loose equality operator
+ *  === (triple) is the strict equality operator
+ *          these two are checks
+ * 
+ * true == true
+ * true
+ * 
+ * 
+ * true == false
+ * false
+ * 
+ * false == false
+ * true
+ * 
+ * false == true
+ * false
+ * 
+ * 
+ * == vs === 
+ * 1 == true
+ * true
+ * 
+ * 'true' == true
+ * true
+ * 
+ * 
+ * 1 === true
+ * false
+ * 
+ * 'true' === true
+ * false
+ */
