@@ -1,6 +1,6 @@
 // Wait to run this code block until html content has loaded
 addEventListener('DOMContentLoaded', () => {
-    console.log('hello from content loaded');
+    console.log('hello from content loaded')
 })
 
 // addEventListener('click', (event) => {
@@ -13,21 +13,26 @@ addEventListener('DOMContentLoaded', () => {
 //////////////////////////////////
 
 
-const images = document.querySelectorAll('img');
+const images = document.querySelectorAll('img')
 
-const cards = [
-    {
+const cards = []
+
+for (let i = 0; i < images.length; i++) {
+    const card = {
         flipped: false,
         matched: false,
         name: "coffee",
-    },
-    {
-        flipped: false,
-        matched: false,
-        name: "coffee",
-    },
-]
-    
+        //source: i with a link to the source image...
+    }
+    cards.push(card);
+}
+
+
+
+
+
+
+
 
 // middle - loop condition
 
@@ -35,50 +40,39 @@ for (let i = 0; i < images.length; i++) {
     const image = images.item(i)
     image.addEventListener('click', (event) => {
         
-        if (cards[0].flipped === false) {
-            console.log(`flipped is now ${cards[0].flipped}`)
-            cards[0].flipped = true
-            console.log(`flipped is now ${cards[0].flipped}`)
+        if (cards[i].flipped === false) {
+            console.log(`flipped is now ${cards[i].flipped} for image ${i}`)
+            cards[i].flipped = true
+            console.log(`flipped is now ${cards[i].flipped} for image ${i}`)
         }
     });
 }
 
 
-/**
- * Dean's = vs == vs === sidebar
- * 
- *  = (single) is the assignment operator
- *          this is an action
- * 
- *  == (double) is the loose equality operator
- *  === (triple) is the strict equality operator
- *          these two are checks
- * 
- * true == true
- * true
- * 
- * 
- * true == false
- * false
- * 
- * false == false
- * true
- * 
- * false == true
- * false
- * 
- * 
- * == vs === 
- * 1 == true
- * true
- * 
- * 'true' == true
- * true
- * 
- * 
- * 1 === true
- * false
- * 
- * 'true' === true
- * false
- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// ignore me for now
+// const cards = [
+//     // {
+//     //     flipped: false,
+//     //     matched: false,
+//     //     name: "coffee",
+//     // },
+//     // {
+//     //     flipped: false,
+//     //     matched: false,
+//     //     name: "coffee",
+//     // },
+// ]
