@@ -13,17 +13,24 @@ addEventListener('DOMContentLoaded', () => {
 //////////////////////////////////
 
 
+
 const images = document.querySelectorAll('img')
+
+const source = []
 
 const cards = []
 
 for (let i = 0; i < images.length; i++) {
+
     const card = {
         flipped: false,
         matched: false,
         name: "coffee",
-        //source: i with a link to the source image...
+        
     }
+    
+        
+
     cards.push(card);
 }
 
@@ -45,6 +52,11 @@ for (let i = 0; i < images.length; i++) {
             cards[i].flipped = true
             console.log(`flipped is now ${cards[i].flipped} for image ${i}`)
         }
+
+        if (cards[i].flipped === true) {
+            images[i].src = `images/${cards[i].name}.png`  
+        }
+
     });
 }
 
