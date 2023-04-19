@@ -16,7 +16,7 @@ addEventListener('DOMContentLoaded', () => {
 
 const images = document.querySelectorAll('img')
 
-const source = []
+const source = ["coffee", "diver", "fox", "mask", "penguin", "picture", "coffee", "diver", "fox", "mask", "penguin", "picture", "coffee", "diver", "fox", "mask", "penguin", "picture", "coffee", "diver", "fox", "mask", "penguin", "picture"];
 
 const cards = []
 
@@ -25,7 +25,7 @@ for (let i = 0; i < images.length; i++) {
     const card = {
         flipped: false,
         matched: false,
-        name: "coffee",
+        name: `${source[i]}`,
         
     }
     
