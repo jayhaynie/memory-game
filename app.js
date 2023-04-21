@@ -14,7 +14,7 @@ addEventListener('DOMContentLoaded', () => {
 
 
 
-const images = document.querySelectorAll('img')
+const images = document.querySelectorAll('img:not(.centerButton)')
 
 const source = ["coffee", "diver", "fox", "mask", "penguin", "picture", "coffee", "diver", "fox", "mask", "penguin", "picture", "coffee", "diver", "fox", "mask", "penguin", "picture", "coffee", "diver", "fox", "mask", "penguin", "picture"];
 
@@ -34,8 +34,11 @@ for (let i = 0; i < images.length; i++) {
     cards.push(card);
 }
 
+const centerButton = document.querySelector('.centerButton')
 
-
+centerButton.addEventListener('click', (event) => {    
+    document.location.reload()
+})
 
 
 
@@ -56,6 +59,7 @@ for (let i = 0; i < images.length; i++) {
         if (cards[i].flipped === true) {
             images[i].src = `images/${cards[i].name}.png`  
         }
+
 
     });
 }
