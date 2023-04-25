@@ -16,7 +16,7 @@ addEventListener('DOMContentLoaded', () => {
 
 const images = document.querySelectorAll('img:not(.centerButton)')
 
-const source = ["coffee", "diver", "fox", "mask", "penguin", "picture", "coffee", "diver", "fox", "mask", "penguin", "picture", "coffee", "diver", "fox", "mask", "penguin", "picture", "coffee", "diver", "fox", "mask", "penguin", "picture"];
+let source = ["coffee", "diver", "fox", "mask", "penguin", "picture", "coffee", "diver", "fox", "mask", "penguin", "picture", "coffee", "diver", "fox", "mask", "penguin", "picture", "coffee", "diver", "fox", "mask", "penguin", "picture"];
 
 const cards = []
 
@@ -25,11 +25,12 @@ for (let i = 0; i < images.length; i++) {
     const card = {
         flipped: false,
         matched: false,
-        name: `${source[i]}`,
+        name: `${source[Math.floor(Math.random()*23)]}`,
         
     }
     
         
+    //source.slice(i)
 
     cards.push(card);
 }
