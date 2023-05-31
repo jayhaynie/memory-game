@@ -73,17 +73,22 @@ for (let i = 0; i < images.length; i++) {
 
         let firstCard = cardsId[0];
         let secondCard = cardsId[1];
-        cardsId.push(cards[i].name)
+        cardsId.push(cards[i])
         cardsSelected.push(cards[i].name);
-        if (cardsSelected[0] === cardsSelected[1]) {
-            cards.matched = true;
+        if (cardsSelected[0] === cardsSelected[1] && firstCard != secondCard) {
+            cards[i].matched = true;
             images[i].src = "images/white.png"
-        } else {
-            firstCard.src = "images/question.png"
-            secondCard.src = "images/question.png"
-            cardsId = [];
+        } 
+        if (firstCard != secondCard && cardsSelected.length > 1) {
+            // trying to make the cards flip back to question marks if they're not matched and only on the second click
+             firstCard.images.src = "images/question.png"
+             secondCard.images.src = "images/question.png"
         }
-
+        // clears cardsId and CardsSelected arrays every second click after chacking if they match
+        if (cardsSelected.length > 1) {
+            cardsId = [];
+            cardsSelected = [];
+        }
     });
 }
 
