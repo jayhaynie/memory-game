@@ -32,7 +32,7 @@ for (let i = 0; i < images.length; i++) {
         flipped: false,
         matched: false,
         name: source[randomNumber],
-        
+        position: `${i}`,
     }
     
         
@@ -57,38 +57,36 @@ for (let i = 0; i < images.length; i++) {
     const image = images.item(i)
     image.addEventListener('click', (event) => {
         
-        if (cards.matched = true) {
+        if (cards[i].matched === true) {
             //do nothing
-        }
-
-        if (cards[i].flipped === false) {
-           // console.log(`flipped is now ${cards[i].flipped} for image ${i}`)
-            cards[i].flipped = true
+        } else 
+            if (cards[i].flipped === false) {
+            // console.log(`flipped is now ${cards[i].flipped} for image ${i}`)
+                cards[i].flipped = true
+            }   
+            if (cards[i].flipped === true) {
+                images[i].src = `images/${cards[i].name}.png`  
+            }
             
-        }
-
-        if (cards[i].flipped === true) {
-            images[i].src = `images/${cards[i].name}.png`  
-        }
-
-        let firstCard = cardsId[0];
-        let secondCard = cardsId[1];
-        cardsId.push(cards[i])
-        cardsSelected.push(cards[i].name);
-        if (cardsSelected[0] === cardsSelected[1] && firstCard != secondCard) {
-            cards[i].matched = true;
-            images[i].src = "images/white.png"
-        } 
-        if (firstCard != secondCard && cardsSelected.length > 1) {
-            // trying to make the cards flip back to question marks if they're not matched and only on the second click
-             firstCard.images.src = "images/question.png"
-             secondCard.images.src = "images/question.png"
-        }
-        // clears cardsId and CardsSelected arrays every second click after chacking if they match
-        if (cardsSelected.length > 1) {
-            cardsId = [];
-            cardsSelected = [];
-        }
+            cardsId.push(cards[i].position)
+            cardsSelected.push(cards[i].name);
+            let firstCard = cardsId[0];
+            let secondCard = cardsId[1];
+            
+            if (cardsSelected[0] === cardsSelected[1] && firstCard != secondCard) {
+                cards[i].matched = true;
+                images[i].src = "images/white.png"
+            } else
+                if (firstCard != secondCard && cardsSelected.length > 1) {
+                    // trying to make the cards flip back to question marks if they're not matched and only on the second click
+                    firstCard.images.src = "images/question.png"
+                    secondCard.images.src = "images/question.png"
+                }
+                // clears cardsId and CardsSelected arrays every second click after chacking if they match
+                if (cardsSelected.length > 1) {
+                    cardsId = [];
+                    cardsSelected = [];
+                }
     });
 }
 
