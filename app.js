@@ -18,10 +18,6 @@ const images = document.querySelectorAll('img:not(.centerButton)')
 
 let source = ["coffee", "coffee", "coffee", "coffee", "diver", "diver", "diver", "diver", "fox", "fox", "fox", "fox", "mask", "mask", "mask", "mask", "penguin", "penguin", "penguin", "penguin", "picture", "picture", "picture", "picture"];
 
-let cardsId = [];
-
-let cardsSelected = [];
-
 const cards = []
 
 for (let i = 0; i < images.length; i++) {
@@ -69,14 +65,23 @@ for (let i = 0; i < images.length; i++) {
             images[i].src = `images/${cards[i].name}.png`
         }
 
+        if (cards[i].flipped === false) {
+            images[i].src = "images/question.png"
+        }
+
         // check if 1 or 2 cards are currently flipped
-        const flippedCardCount = 0
+        let flippedCardCount = 0
         for (let i = 0; i < cards.length; i++) {
             if (cards[i].flipped === true) {
                 flippedCardCount++
             }
+        // if 2 or more cards are flipped
         }
-
+        if (flippedCardCount >= 2) {
+            
+            }
+       
+       
         // ... or instead, use the .filter() array function to isolate the flipped cards
         // see `delete me` section below.
 
