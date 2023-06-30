@@ -71,15 +71,18 @@ for (let i = 0; i < images.length; i++) {
 
         // check if 1 or 2 cards are currently flipped
         let flippedCardCount = 0
+        const flippedCards = []
         for (let i = 0; i < cards.length; i++) {
             if (cards[i].flipped === true) {
                 flippedCardCount++
+                flippedCards.push(cards[i])
             }
-        // if 2 or more cards are flipped
         }
+
+        // if 2 or more cards are flipped
         if (flippedCardCount >= 2) {
             
-            }
+        }
        
        
         // ... or instead, use the .filter() array function to isolate the flipped cards
@@ -92,9 +95,40 @@ for (let i = 0; i < images.length; i++) {
 
 // delete me
 function callme() {
-    const myResult = cards.filter((card) => {
-        return card.flipped === true
+    const people = [
+        {
+            name: 'Dean',
+            age: 27
+        },
+        {
+            name: 'Jay',
+            age: 22
+        },
+        {
+            name: 'Ben',
+            age: 20
+        }
+    ]
+
+    // people.forEach((person) => {
+    //     if (person.age >= 21) {
+    //         console.log(person.name + ' is old enough to drink.')
+    //     }
+    // })
+
+    peopleOver21 = people.filter((person) => {
+        return person.age >= 21;
     })
-    console.log(myResult)
+    console.log(peopleOver21)
+
+
+}
+
+function sayWord(word) {
+    console.log(word)
+}
+
+(word) => {
+    console.log(word)
 }
 
