@@ -41,8 +41,12 @@ centerButton.addEventListener('click', (event) => {
 flippedCardCount = 0
 
 function getFlippedCards() {
-    flippedCards = cards.filter((card) => {
+    let flippedCards = cards.filter((card) => {
         return card.flipped === true
+        if (card[0].name === card[1].name) {
+            card[0, 1].matched === true;
+            card[0, 1].name = "blank.png";
+        }
     })
     console.log(flippedCards)
 }
@@ -73,17 +77,19 @@ for (let i = 0; i < images.length; i++) {
 
         if (flippedCardCount >= 2) {
             //Not sure how to use these yet...
+            setTimeout(getFlippedCards(), 2000) //// want to pause the code for a moment so the player can visually see if the two cards match or not
             //getFlippedCards() //// and if name === name then change matched to === true
-            //setTimeout() //// want to pause the code for a moment so the player can visually see if the two cards match or not
-            //flippedCardCount = 0  //// resets the counter for when the code should check for matching cards
+            // if (card[0].name === card[1].name) {
+            //  card[0, 1].matched === true
+            }
+            flippedCardCount = 0  //// resets the counter for when the code should check for matching cards
         }
        
         // ... or instead, use the .filter() array function to isolate the flipped cards
         // see `delete me` section below.
 
 
-    });
-}
+    )};
 
 
 // delete me
