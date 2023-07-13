@@ -55,85 +55,32 @@ for (let i = 0; i < images.length; i++) {
         }
         else if (cards[i].flipped === false) {
             cards[i].flipped = true
+            images[i].src = `images/${cards[i].name}.png`
             flippedCardCount++
         } 
 
-        if (cards[i].flipped === true) {
-            images[i].src = `images/${cards[i].name}.png`
-        }
-
-        if (cards[i].flipped === false) {
-            images[i].src = "images/question.png"
-        }
-
         if (flippedCardCount >= 2) {
-            //Not sure how to use these yet...
             const flippedCards = cards.filter((card) => {
                 return card.flipped === true 
             })
 
             console.log(flippedCards);
 
-            if (flippedCards[0].name === flippedCards[1].name) {
+            if (flippedCards[0].name === flippedCards[1].name && flippedCards[0].position != flippedCards[1].position) {
                 console.log("the cards matched")
                 flippedCards[0].matched === true;
                 flippedCards[1].matched === true;
-                flippedCards[0].name = "blank.png";
+                flippedCards[0].name = "blank.png";//these don't change the image on the button
                 flippedCards[1].name = "blank.png";
+            } else {
+                flippedCards[0].flipped = false 
+                flippedCards[1].flipped = false
             }
-            //setTimeout(getFlippedCards(), 2000) //// want to pause the code for a moment so the player can visually see if the two cards match or not
-            //getFlippedCards() //// and if name === name then change matched to === true
-            // if (card[0].name === card[1].name) {
-            //  card[0, 1].matched === true
-            
+
             flippedCardCount = 0  //// resets the counter for when the code should check for matching cards
 
-            }
         }
-       
-        // ... or instead, use the .filter() array function to isolate the flipped cards
-        // see `delete me` section below.
+    }
+)};
 
-
-    )};
-
-
-// delete me
-function callme() {
-    const people = [
-        {
-            name: 'Dean',
-            age: 27
-        },
-        {
-            name: 'Jay',
-            age: 22
-        },
-        {
-            name: 'Ben',
-            age: 20
-        }
-    ]
-
-    // people.forEach((person) => {
-    //     if (person.age >= 21) {
-    //         console.log(person.name + ' is old enough to drink.')
-    //     }
-    // })
-
-    peopleOver21 = people.filter((person) => {
-        return person.age >= 21;
-    })
-    console.log(peopleOver21)
-
-
-}
-
-function sayWord(word) {
-    console.log(word)
-}
-
-(word) => {
-    console.log(word)
-}
 
