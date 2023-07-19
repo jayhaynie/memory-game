@@ -1,6 +1,5 @@
 // Wait to run this code block until html content has loaded
 addEventListener('DOMContentLoaded', () => {
-    
 })
 
 //select all image elements except the center button
@@ -61,7 +60,7 @@ for (let i = 0; i < images.length; i++) {
         if (flippedCardCount >= 2) {
             const flippedCards = cards.filter((card) => {
                 return card.flipped === true 
-            })
+            });
 
             //If the first and second index of the flippedCards array have name oroperties that are the same and position properties that are different
             //changed the matched property of both to true and the flipped property of both to false
@@ -70,30 +69,49 @@ for (let i = 0; i < images.length; i++) {
                 flippedCards[1].matched = true;
                 flippedCards[0].flipped = false;
                 flippedCards[1].flipped = false;
-                //wait 2 seconds then direct both cards' source to the white image
+                //wait 1.5 seconds then direct both cards' source to the white image
                 setTimeout(() => {
                     flippedCards[0].element.src = "images/white.png";
                     flippedCards[1].element.src = "images/white.png";
-                }, 2000)
+                }, 1500)
                 
                 //if they don't match change both cards flipped protperty to false
             } else {
                 flippedCards[0].flipped = false 
                 flippedCards[1].flipped = false
-                //wait 2 seconds then direct the both cards' source to the white image
+                //wait 1.5 seconds then direct the both cards' source to the white image
                 setTimeout(() => {
                     flippedCards[0].element.src = "images/question.png";
                     flippedCards[1].element.src = "images/question.png";
-                }, 2000) 
+                }, 1000) 
                 
             }
 
             //whether or not they matched reset flippedCardCount to zero again
-            flippedCardCount = 0  
-
+            flippedCardCount = 0
         }
+
+        const winMessage = document.querySelector('.winMessage')
+
+        const checkWin = cards.filter ((card) => {
+        return card.matched === true
+        });
+        
+        winCountDisplay.innerText = "Win Count: " + `${localStorage.getItem("Win Count:")}`
+        
+        let winCountDisplay = document.querySelector('.winCountDisplay')
+
+        let winCount = localStorage.getItem("Win Count:")
+
+        if (checkWin.length === 24) {
+            winMessage.innerText = "You Won! Click the center button to play again!"
+            winCount++
+            
+        };
     }
 )};
+
+
 
 
 //__To do before putting away__
