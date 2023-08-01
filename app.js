@@ -91,35 +91,33 @@ for (let i = 0; i < images.length; i++) {
             flippedCardCount = 0
         }
 
-        const winMessage = document.querySelector('.winMessage')
-
+        //A function to create an array with the number of matches
         const checkWin = cards.filter ((card) => {
         return card.matched === true
         });
         
-        winCountDisplay.innerText = "Win Count: " + `${localStorage.getItem("Win Count:")}`
+        //defines the variable winCount to source the localStorage file
+        let winCount = localStorage.getItem("winCount")
         
-        let winCountDisplay = document.querySelector('.winCountDisplay')
+        //A variable to call the winMessage <p>aragraph under the game board
+        const winMessage = document.querySelector('.winMessage')
 
-        let winCount = localStorage.getItem("Win Count:")
-
+        //If all the cards have been matched, display winMessage, increment winCount, and set localStorage wincount to the winCount value
         if (checkWin.length === 24) {
             winMessage.innerText = "You Won! Click the center button to play again!"
             winCount++
-            
+            localStorage.setItem("winCount", winCount)
         };
+        //redefines winCount to the value in localStorage
+        winCount = localStorage.getItem("winCount")
     }
 )};
 
 
+//A variable to call the winCountDisplay <p>aragraph under the game board
+let winCountDisplay = document.querySelector('.winCountDisplay')
 
+//Changes the empty element to show the win count
+winCountDisplay.innerText = "Win Count: " + `${localStorage.getItem("winCount")}`
 
-//__To do before putting away__
-
-//- Fix issue of over clicking, should not be able to click a third time until the original two have matched or flipped back
-
-//- Create a win message "you won in xx:xx"
-//     maybe a win counter using the browser cache
-//     maybe a constant timer to integrate with win message
-
-//- Comment over the entire project explaining how it works for later reference
+//Completed on 07/31/2023
